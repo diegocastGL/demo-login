@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "6ee9b84e-0eb5-40db-bb6c-c6fe3026ad23",
+		"name": "DEMO BCI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8920514"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/sign-up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"email\": \"juan@email.com\",\r\n    \"password\": \"A3fgh4asd\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": 1112244,\r\n            \"citycode\": 1,\r\n            \"contrycode\":\"AR\"\r\n        },\r\n        {\r\n            \"number\":1113345,\r\n            \"citycode\": 1,\r\n            \"contrycode\":\"AR\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/sign-up",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imp1YW5AZW1haWwuY29tIiwic3ViIjoiSnVhbiIsImlhdCI6MTcyODA2MTIyMCwiZXhwIjoxNzI4MDYxMjIwMzkzfQ.TJdzc-88DDYTURznR5k8qck9--XM15Jm6T1aRLAbtAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
