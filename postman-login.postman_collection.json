@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"email\": \"juan@email.com\",\r\n    \"password\": \"A3fgh4asd\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": 1112244,\r\n            \"citycode\": 1,\r\n            \"countrycode\":\"AR\"\r\n        },\r\n        {\r\n            \"number\":1113345,\r\n            \"citycode\": 1,\r\n            \"countrycode\":\"AR\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"email\": \"juan@email.com\",\r\n    \"password\": \"A3fgh4asd\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": 1112244,\r\n            \"citycode\": 1,\r\n            \"countrycode\":\"54\"\r\n        },\r\n        {\r\n            \"number\":1113345,\r\n            \"citycode\": 1,\r\n            \"countrycode\":\"54\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
