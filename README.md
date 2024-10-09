@@ -17,7 +17,7 @@
 
     De todas formas se adjunta una colección de Postman para la ejecución de los endpoint.
 
-#Construcción del proyecto
+## Construcción del proyecto
     Para la construcción del proyecto en un IDE como por ejemplo Intellj. Se clona el proyecto
     desde el repositorio remoto. Se importa como proyecto gradle seleccionando el archivo "gradle.build",
     y luego se abre la solapa de herramientas gradle en Intellj donde se encuentran las "task" de gradle
