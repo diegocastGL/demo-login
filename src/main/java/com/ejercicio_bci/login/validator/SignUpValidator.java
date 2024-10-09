@@ -28,11 +28,22 @@ public class SignUpValidator {
         String passwordDeEjemplo = "a2asfGfdfdf4";
 
         if (Objects.isNull(password) || password.isBlank()) {
-            log.info("Password vacio o nulo");
+            log.error("Password vacio o nulo");
             throw new InvalidPasswordException(400, "Password vacio o nulo");
         }
 
-        String regex = "^(?=.*[A-Z])(?=(?:[^0-9]*[0-9]){2})[a-zA-Z0-9]{8,12}$";
+        if (password.length() < 8) {
+            log.error("Password menor a 8 caracteres");
+            throw new InvalidPasswordException(400, "Password menor a 8 caracteres");
+        }
+
+        if (password.length() > 12) {
+            log.error("Password mayor a 12 caracteres");
+            throw new InvalidPasswordException(400, "Password mayor a 12 caracteres");
+        }
+
+
+        String regex = "^(?=.*[A-Z])(?=(?:[^0-9]*[0-9][^0-9]*){2})(?=.{8,12}$).*";
         return Pattern.compile(regex).matcher(password).matches();
     }
 }
