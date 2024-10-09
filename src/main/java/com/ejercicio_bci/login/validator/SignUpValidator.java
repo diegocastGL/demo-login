@@ -32,7 +32,7 @@ public class SignUpValidator {
             throw new InvalidPasswordException(400, "Password vacio o nulo");
         }
 
-        String regex = "^(?=.*[A-Z])(?=(?:[^0-9]*[0-9]){2})[a-zA-Z0-9]{8,12}$";
+        String regex = "([\\d{2}a-zA-Z{1}]){8,12}";
         return Pattern.compile(regex).matcher(password).matches();
     }
 }
