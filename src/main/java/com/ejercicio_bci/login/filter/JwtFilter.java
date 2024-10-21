@@ -1,7 +1,7 @@
 package com.ejercicio_bci.login.filter;
 
-import com.ejercicio_bci.login.service.JwtService;
-import com.ejercicio_bci.login.service.MyUserDetailsService;
+import com.ejercicio_bci.login.service.impl.JwtServiceimpl;
+import com.ejercicio_bci.login.service.impl.MyUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
@@ -25,7 +25,7 @@ public class JwtFilter extends OncePerRequestFilter {
     private ApplicationContext context;
 
     @Autowired
-    private JwtService jwtService;
+    private JwtServiceimpl jwtServiceimpl;
 
 
     @Override
@@ -36,13 +36,13 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
-            username = jwtService.extractUserName(token);
+            username = jwtServiceimpl.extractUserName(token);
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            UserDetails userDetails = context.getBean(MyUserDetailsService.class).loadUserByUsername(username);
+            UserDetails userDetails = context.getBean(MyUserDetailsServiceImpl.class).loadUserByUsername(username);
 
-            if (jwtService.validateToken(token, userDetails)) {
+            if (jwtServiceimpl.validateToken(token, userDetails)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
