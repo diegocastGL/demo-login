@@ -1,6 +1,7 @@
 package com.ejercicio_bci.login.service;
 
 import com.ejercicio_bci.login.repository.UserRepository;
+import com.ejercicio_bci.login.service.impl.MyUserDetailsServiceImpl;
 import com.ejercicio_bci.login.util.UserMock;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,13 +19,13 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class MyUserDetailsServiceTest {
+public class MyUserDetailsServiceImplTest {
 
     @Mock
     private UserRepository userRepository;
 
     @InjectMocks
-    private MyUserDetailsService service;
+    private MyUserDetailsServiceImpl service;
 
     @Test
     @DisplayName("Cargar por nombre de usuario - OK")

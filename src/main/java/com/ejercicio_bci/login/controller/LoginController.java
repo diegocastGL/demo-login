@@ -16,12 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/login")
 public class LoginController {
 
+    private LoginService service;
+
     @Autowired
-    private LoginService loginService;
+    public LoginController(LoginService loginService) {
+        service = loginService;
+    }
 
     @PostMapping
     @PreAuthorize(RolesConfig.PRE_AUTH_USER)
     public LoginResponse login(@RequestHeader(name = HttpHeaders.AUTHORIZATION) String authorization) throws CustomException {
-        return loginService.login(authorization);
+        return service.login(authorization);
     }
 }

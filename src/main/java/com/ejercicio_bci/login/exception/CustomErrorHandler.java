@@ -14,6 +14,8 @@ import java.util.List;
 @ControllerAdvice
 public class CustomErrorHandler {
 
+    public CustomErrorHandler() {}
+
     @ExceptionHandler(InvalidPasswordException.class)
     public ResponseEntity<ErrorResponseDTO> handleException(InvalidPasswordException exception) {
         ErrorDTO error = ErrorDTO.builder().codigo(exception.getCode()).detail(exception.getMessage()).timestamp(LocalDateTime.now()).build();

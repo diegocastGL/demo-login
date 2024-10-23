@@ -17,7 +17,7 @@
 
     De todas formas se adjunta una colección de Postman para la ejecución de los endpoint.
 
-## Construcción del proyecto
+## Construcción del proyecto desde IDE IntelliJ
     Para la construcción del proyecto en un IDE como por ejemplo Intellj. Se clona el proyecto
     desde el repositorio remoto. Se importa como proyecto gradle seleccionando el archivo "gradle.build",
     y luego se abre la solapa de herramientas gradle en Intellj donde se encuentran las "task" de gradle
@@ -25,8 +25,13 @@
     y luego desde Intellj se ejecuta la clase "Main" o el boton para iniciarlo donde se hace el 
     "Run LoginApplication".
 
+## Construccion del proyecto sin IDE
     Si no se quiere construir y ejecutar desde el IDE se pueden utilizar la linea de comandos
     para la limpieza, construcción y ejecución del proyecto.
+
+    Nos ubicamos en una carpeta donde queremos clonar el proyecto y ejecutamos:
+    
+    git clone https://github.com/diegocastGL/demo-login.git
 
     Desde la carpeta del proyecto, utilizamos los siguientes comandos gradle para la construcción:
 
@@ -35,6 +40,12 @@
      .\gradlew test (ejecución de test)
      .\gradlew jacocoTestReport (Ejecucion de pruebas unitarias junto con reporte de covertura)
      .\gradlew run (Ejecución)
+     .\gradlew bootRun(Ejecución para proyectos springboot)
+
+    O simplemente se pueden ejecutar los siguientes comandos para la consutruccion y ejecucion:
+
+    .\gradlew clean build
+    .\gradlew bootRun
 
     Una vez que se ejecuta el proyecto compilado se puede empezar a utilizar los endpoint que
     por defecto van a estar en el host local: "localhost:8080".

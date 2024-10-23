@@ -3,7 +3,7 @@ package com.ejercicio_bci.login.controller;
 import com.ejercicio_bci.login.dto.SignUpRequest;
 import com.ejercicio_bci.login.dto.SignUpResponse;
 import com.ejercicio_bci.login.exception.CustomException;
-import com.ejercicio_bci.login.service.SignUpService;
+import com.ejercicio_bci.login.service.impl.SignUpServiceImpl;
 import com.ejercicio_bci.login.util.SignUpMock;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 public class SignUpControllerTest {
 
     @Mock
-    private SignUpService service;
+    private SignUpServiceImpl service;
 
     @InjectMocks
     private SignUpController controller;

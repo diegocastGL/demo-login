@@ -9,6 +9,8 @@ import com.ejercicio_bci.login.mapper.PhoneMapper;
 import com.ejercicio_bci.login.mapper.UserMapper;
 import com.ejercicio_bci.login.repository.PhoneRepository;
 import com.ejercicio_bci.login.repository.UserRepository;
+import com.ejercicio_bci.login.service.impl.JwtServiceimpl;
+import com.ejercicio_bci.login.service.impl.SignUpServiceImpl;
 import com.ejercicio_bci.login.util.SignUpMock;
 import com.ejercicio_bci.login.util.UserMock;
 import com.ejercicio_bci.login.validator.SignUpValidator;
@@ -30,7 +32,7 @@ import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class SignUpServiceTest {
+public class SignUpServiceImplTest {
 
     @Mock
     private UserRepository userRepository;
@@ -42,7 +44,7 @@ public class SignUpServiceTest {
     private SignUpValidator validator;
 
     @Mock
-    private JwtService jwtService;
+    private JwtServiceimpl jwtServiceimpl;
 
     @Spy
     private UserMapper userMapper;
@@ -51,7 +53,7 @@ public class SignUpServiceTest {
     private PhoneMapper phoneMapper;
 
     @InjectMocks
-    private SignUpService service;
+    private SignUpServiceImpl service;
 
     @Test
     @DisplayName("Sign Up - OK")
@@ -60,7 +62,7 @@ public class SignUpServiceTest {
         when(validator.isValidPassword(anyString())).thenReturn(true);
         when(userRepository.save(any())).thenReturn(UserMock.buildUserEntity());
         when(phoneRepository.saveAll(any())).thenReturn(new ArrayList<>());
-        when(jwtService.generateToken(anyString(),anyString())).thenReturn("TOKEN");
+        when(jwtServiceimpl.generateToken(anyString(),anyString())).thenReturn("TOKEN");
 
         SignUpRequest request = SignUpMock.buildSignUpRequest();
         SignUpResponse response = service.signUp(request);
@@ -98,7 +100,7 @@ public class SignUpServiceTest {
         when(validator.isValidEmail(anyString())).thenReturn(true);
         when(validator.isValidPassword(anyString())).thenReturn(true);
         when(userRepository.save(any())).thenReturn(UserMock.buildUserEntity());
-        when(jwtService.generateToken(anyString(),anyString())).thenReturn("TOKEN");
+        when(jwtServiceimpl.generateToken(anyString(),anyString())).thenReturn("TOKEN");
 
         SignUpRequest request = SignUpMock.buildSignUpRequest();
         request.setPhones(null);
