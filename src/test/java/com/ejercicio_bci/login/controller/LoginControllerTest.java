@@ -2,7 +2,7 @@ package com.ejercicio_bci.login.controller;
 
 import com.ejercicio_bci.login.dto.LoginResponse;
 import com.ejercicio_bci.login.exception.CustomException;
-import com.ejercicio_bci.login.service.LoginService;
+import com.ejercicio_bci.login.service.impl.LoginServiceImpl;
 import com.ejercicio_bci.login.util.LoginMock;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 public class LoginControllerTest {
 
     @Mock
-    private LoginService service;
+    private LoginServiceImpl service;
 
     @InjectMocks
     private LoginController controller;

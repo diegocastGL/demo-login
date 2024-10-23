@@ -1,5 +1,6 @@
 package com.ejercicio_bci.login.service;
 
+import com.ejercicio_bci.login.service.impl.JwtServiceimpl;
 import com.ejercicio_bci.login.util.JwtServiceMock;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
-public class JwtServiceTest {
+public class JwtServiceimplTest {
 
     @InjectMocks
-    private JwtService service;
+    private JwtServiceimpl service;
 
     @Test
     @DisplayName("Generate Token - OK")
